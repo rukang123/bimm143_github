@@ -1,5 +1,6 @@
-# bimm143_github
-My classwork for F23 in BIMM143 at UC San Diego.
+# bimm143 classwork
+
+My classwork for F23 in [BIMM143](https://bioboot.github.io/bimm143_F23/class-material/github_lab.html#4_Connecting_RStudio_to_GitHub) at UC San Diego.
 
 
 
