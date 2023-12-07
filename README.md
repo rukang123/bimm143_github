@@ -17,3 +17,5 @@ My classwork for F23 in [BIMM143](https://bioboot.github.io/bimm143_F23/class-ma
 -class10:[Structural Bioinformatics (pt1)](https://github.com/rukang123/bimm143_github/blob/main/Class%2010/Class-10.pdf)
 
 -class11:[Structural Bioinformatics pt2. Focus on new AlphaFold2](https://github.com/rukang123/bimm143_github/blob/main/Class-11-part2-combined.pdf)
+
+-class13:[Transcriptomics and the analysis of RNA-Seq data](https://github.com/rukang123/bimm143_github/blob/main/CLASS%2012/Class-13.pdf)
