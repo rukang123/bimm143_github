@@ -22,4 +22,8 @@ My classwork for F23 in [BIMM143](https://bioboot.github.io/bimm143_F23/class-ma
 
 -class14:[RNA-Seq analysis](https://github.com/rukang123/bimm143_github/blob/main/class14.pdf)
 
-class17:[Essential UNIX for bioinformatics](https://github.com/rukang123/bimm143_github/blob/main/HW8_unix_questions.pdf)
+-class17:[Essential UNIX for bioinformatics](https://github.com/rukang123/bimm143_github/blob/main/HW8_unix_questions.pdf)
+
+-class18:[Analyzing sequencing data in the cloud](https://github.com/rukang123/bimm143_github/blob/main/class18.pdf)
+
+-class19:[Investigating Pertussis Resurgence]
