@@ -1,0 +1,170 @@
+---
+title: "class 10"
+author: "Ruofan Kang (A17236920)"
+format: pdf
+editor: visual
+---
+
+First let's see what is in the PDN database-the mainrepository of protein structures.
+
+Downloaded composition stats from: https://www.rcsb.org/stats/summary
+
+For context: Release 2023_04 of 13-Sep-2023 of UniProtKB/TrEMBL contains 251600768 sequence entries.
+
+http://tinyurl.com/statspdb
+
+```{r}
+stats <- read.csv("PDBstats.csv", row.names = 1)
+stats
+```
+
+There is a problem here due to the commas in the numbers. this cause R to treat them as characters.
+
+```{r}
+x<- stats$X.ray
+x
+```
+
+```{r}
+as.numeric( gsub(",", "", x) )
+```
+
+```{r}
+rm.comma <- function(x) {
+  as.numeric( gsub(",", "", x) )
+}
+```
+
+```{r}
+rm.comma(stats$X.ray)
+```
+
+I can use 'apply()' to fix the whole table...
+
+```{r}
+pdbstats <- apply(stats, 2, rm.comma)
+rownames(pdbstats) <-rownames(stats)
+head(pdbstats)
+```
+
+```{r}
+totals <-apply(pdbstats, 2, sum)
+totals
+```
+
+> Q1: What percentage of structures in the PDB are solved by X-Ray and Electron Microscopy.
+
+```{r}
+round(totals/totals["Total"] *100,2)
+```
+
+> Q2: What proportion of structures in the PDB are protein?
+
+```{r}
+round(pdbstats[1, "Total"]/ sum(pdbstats [, "Total"]) * 100, 2)
+```
+
+> Q3: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?
+
+SKIPED for time
+
+Protein structures in PDB as a fraction of Uniprot sequences. See:https://www.uniprot.org/help/release-statistics
+
+```{r}
+round( (pdbstats[1, "Total"]/ 251600768)*100,2)
+```
+
+> Q4: Water molecules normally have 3 atoms. Why do we see just one atom per water molecule in this structure?
+
+This is a 2 Angstrom structure and hydrogen is not visible at this resolution in X-ray crystallography. The positions of the hydrogen atoms are usually not determined, their electron density is weak and harder to discern.
+
+> Q5: There is a critical "conserved" water molecule in the binding site. Can you identify this water molecule? What residue number does this water molecule have
+
+Water HDH 308
+
+> Q6: Generate and save a figure clearly showing the two distinct chains of HIV-protease along with the ligand. You might also consider showing the catalytic residues ASP 25 in each chain and the critical water (we recommend "Ball & Stick" for these side-chains). Add this figure to your Quarto document.
+
+Here is a lovely figure of HIP-Pr with the catalytic ASP residues,the MK1 compound and the all important water 308.
+
+```{r}
+plot(magick::image_read("1HSG-2.png"))
+```
+
+```{r}
+plot(magick::image_read("1HSG-3.png"))
+```
+
+## The bio3d package for structural bioinformatics
+
+```{r}
+library(bio3d)
+pdb <- read.pdb("1hsg")
+pdb
+```
+
+```{r}
+print(pdb)
+```
+
+```{r}
+read.pdb(file="1hsg")
+```
+
+> Q7: How many amino acid residues are there in this pdb object?
+
+There are 198 amino acid residues.
+
+> Q8: Name one of the two non-protein residues?
+
+HOH
+
+> Q9: How many protein chains are in this structure?
+
+2 protein chains are in this structure.
+
+```{r}
+attributes(pdb)
+```
+
+```{r}
+head(pdb$atom)
+```
+
+#Predicting functional motions of a single structure
+
+Let's finish today with a bioinformatics calculation to predict the functional motions of a PDB structure.
+
+```{r}
+adk <- read.pdb("6s36")
+m <- nma(adk)
+```
+
+```{r}
+plot(m)
+mktrj(m, file="adk_m7.pdb")
+```
+
+> Q10. Which of the packages above is found only on BioConductor and not CRAN?
+
+msa package is found only on Bioc\]Conductor not CRAN.
+
+> Q11. Which of the above packages is not found on BioConductor or CRAN?
+
+"Grantlab/bio3D-view" package is not found on BioConductor or CRAN.
+
+> Q12. True or False? Functions from the devtools package can be used to install packages from GitHub and BitBucket?
+
+True.
+
+```{r}
+library(bio3d)
+aa <- get.seq("1ake_A")
+```
+
+```{r}
+aa
+```
+
+> Q13. How many amino acids are in this sequence, i.e. how long is this sequence?
+
+This sequence is 214 amino acids long.

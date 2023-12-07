@@ -1,0 +1,79 @@
+---
+title: "class 10 Comparative analysis of structure"
+author: "Ruofan Kang (A17236920)"
+format: pdf
+editor: visual
+---
+
+We need some packages for todays class. These include 'bio3d' and 'msa'. The 'mea'package is from BioConductor. These packages focus on genomics type work and are managed by the 'BiocManager'package.
+
+Install 'install.packages("BiocManager")' and then 'BiocManager::install("msa")' all entered in the R "brain" console.
+
+```{r}
+library(bio3d)
+
+aa <-get.seq("1ake_A")
+aa
+```
+
+Now I can search the PDB databse for related sequences:
+
+```{r}
+b <-blast.pdb(aa)
+```
+
+```{r}
+hits <- plot(b)
+```
+
+```{r}
+attributes(b)
+head(b$hit.tbl)
+```
+
+There are the related structures in the PDB database that we found via a BLAST search...
+
+```{r}
+hits$pdb.id
+```
+
+Side-note: Lets annotate these structures (in other words find out what thet are, what soeies they are from, stuff about the experiment they were solved in etc.)
+
+For this we can use the 'pdb.annotate()'
+
+```{r}
+anno <- pdb.annotate(hits$pdb.id)
+```
+
+```{r}
+#attributes(anno)
+head(anno)
+```
+
+Now we can download all these structures for further analysis with the'get.pdb()' function.
+
+```{r}
+# Download releated PDB files
+files <- get.pdb(hits$pdb.id, path="pdbs", split=TRUE, gzip=TRUE)
+```
+
+Now we have all these related structures we can Align and Supperpose...
+
+```{r}
+# Align releated PDBs
+pdbs <- pdbaln(files, fit = TRUE, exefile="msa")
+pdbs
+```
+
+## Principal Cpmponent Alalysis
+
+```{r}
+# Perform PCA
+pc.xray <- pca(pdbs)
+plot(pc.xray)
+```
+
+```{r}
+# Visualize first principal component
+pc1 <- mktrj(pc.xray, pc=1, file="pc_1.pdb")
+```
