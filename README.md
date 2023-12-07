@@ -4,4 +4,4 @@ My classwork for F23 in [BIMM143](https://bioboot.github.io/bimm143_F23/class-ma
 
 
 
--class 05:[intro to GGPLOT] (https://github.com/rukang123/bimm143_github/blob/main/class05/class5.pdf).
+-class 05:[intro to GGPLOT](https://github.com/rukang123/bimm143_github/blob/main/class05/class5.pdf).
