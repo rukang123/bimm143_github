@@ -26,4 +26,4 @@ My classwork for F23 in [BIMM143](https://bioboot.github.io/bimm143_F23/class-ma
 
 -class18:[Analyzing sequencing data in the cloud](https://github.com/rukang123/bimm143_github/blob/main/class18.pdf)
 
--class19:[Investigating Pertussis Resurgence]
+-class19:[Investigating Pertussis Resurgence](https://github.com/rukang123/bimm143_github/blob/main/class-19.pdf)
