@@ -13,3 +13,5 @@ My classwork for F23 in [BIMM143](https://bioboot.github.io/bimm143_F23/class-ma
 -class 08:[Unsupervised Learning Mini-Project](https://github.com/rukang123/bimm143_github/blob/main/class%2008/class8.pdf)
 
 -class 09:[Halloween Candy Mini-Project](https://github.com/rukang123/bimm143_github/blob/main/class%2009/class-09.pdf)
+
+-class10:[Structural Bioinformatics (pt1)](https://github.com/rukang123/bimm143_github/blob/main/Class%2010/Class-10.pdf)
