@@ -8,4 +8,4 @@ My classwork for F23 in [BIMM143](https://bioboot.github.io/bimm143_F23/class-ma
 
 -class 06:[R functions](https://github.com/rukang123/bimm143_github/blob/main/Class%2006/class-06.pdf).
 
--class 07:[](https://github.com/rukang123/bimm143_github/blob/main/class%2007.pdf)
+-class 07:[Machine learning](https://github.com/rukang123/bimm143_github/blob/main/class%2007.pdf)
